@@ -36,7 +36,7 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="active">
-						<a class="nav-link" href="">Home</a>
+						<a class="nav-link" href="">Home</a> <!--CHANGE ALL LINKS TO 'Sign out' LINK-->
 					</li>
 					<li>
 						<a class="nav-link" href="">About</a>
@@ -47,10 +47,10 @@
 				</ul>
 				<ul class="navbar-nav ml-auto">
           <% if current_user %>
-            <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+            <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "a-primary" %>
           <% else %>
-            <%= link_to 'Sign up', new_user_registration_path %>
-            <%= link_to 'Sign in', new_user_session_path %>
+            <%= link_to 'Sign up', new_user_registration_path, class: "a-primary"%>
+            <%= link_to 'Sign in', new_user_session_path, class: "a-primary"%>
           <% end %>
 				</ul>
 			</div>
