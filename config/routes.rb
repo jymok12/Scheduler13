@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   root to: 'home#index'
   #get 'home/index'
   devise_for :users
+
+  get "/app/views/home/calendar.html.erb", to: "home#calendar", as: "calendar"
+
+
   #root "home#index"
   #as :user do
   #get 'sign_in', :to => 'devise/registrations#new'
