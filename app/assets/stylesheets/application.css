@@ -14,4 +14,6 @@
  *= require_self
  */
 
-*= require simple_calendar;
+*= require simple_calendar{
+  
+}
