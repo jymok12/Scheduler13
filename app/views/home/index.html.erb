@@ -58,7 +58,11 @@
   					<h1>SFU Scheduler</h1>
   					<h3>Engaging The World</h3>
   					<hr>
-  					<%= link_to 'Book Now!', calendar_path, class: "btn btn-primary btn-sm" %>
+            <% if current_user %>
+              <%= link_to 'Book Now!', calendar_path, class: "btn btn-primary btn-sm" %>
+            <% else %>
+            <%= link_to 'Book Now!', new_user_registration_path, class: "btn btn-primary btn-sm" %>
+            <% end %>
             </hr>
   				</div>
   			</div>
