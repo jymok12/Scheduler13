@@ -1,0 +1,77 @@
+
+<div class="index-home">
+  <p id="notice"><%= notice %></p>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <%= link_to 'SFU Scheduler', root_path, class: "navbar-brand" %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="active">
+            <%= link_to 'Home', root_path, class: "nav-link" %> <!--CHANGE ALL LINKS TO 'Sign out' LINK-->
+          </li>
+          <li>
+            <a class="nav-link" href="">About</a>
+          </li>
+          <li>
+            <a class="nav-link" href="">Contact</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Start time</th>
+        <th>End time</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @meetings.each do |meeting| %>
+        <tr>
+          <td><%= meeting.name %></td>
+          <td><%= meeting.start_time %></td>
+          <td><%= meeting.end_time %></td>
+          <% if current_staff %>
+            <td><%= link_to 'Show', meeting %></td>
+            <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>
+            <td><%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+
+
+  <br>
+  <% if current_staff %>
+    <%= link_to 'New Meeting', new_meeting_path %>
+  <% end %>
+
+  <%= month_calendar events: @meetings do |date, meetings| %>
+    <%= date.day %>
+
+    <% meetings.each do |meeting| %>
+      <div>
+        <%= meeting.name %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
