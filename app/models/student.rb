@@ -11,7 +11,7 @@ class Student < ApplicationRecord
 
   has_many :appointments, :through => :bookings
 
-  mount_uploader :photo, StudentUploader
+  #mount_uploader :photo, StudentUploader
 
   def name
     "#{first_name} #{last_name}"
