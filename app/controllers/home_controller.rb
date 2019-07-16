@@ -12,6 +12,11 @@ class HomeController < ApplicationController
   def signin
   end
 
+  def staff_list
+  end
+
+  def about
+  end
 
   before_action :set_appointment, only: [:new]
   def new
