@@ -16,22 +16,9 @@ Rails.application.routes.draw do
   get "/app/views/home/index.html.erb", to: "home#index", as: "index"
   get "/app/views/home/about.html.erb", to: "home#about", as: "about"
   get "/app/views/home/staff_list.html.erb", to: "home#staff_list", as: "staff_list"
-  
+
   get "/app/views/home/signup.html.erb", to: "home#signup", as: "signup"
   get "/app/views/home/signin.html.erb", to: "home#signin", as: "signin"
   get "/app/views/meetings/index.html.erb", to: "meetings#index", as: "book"
 
-
-
-
-  #root "home#index"
-  #as :user do
-  #get 'sign_in', :to => 'devise/registrations#new'
-  #end
-
-  #devise_scope :user do
-  #  get 'register', to: 'devise/registrations#new', as: :register
-  #  get 'login', to: 'devise/sessions#new', as: :login
-  #end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
