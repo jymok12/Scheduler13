@@ -16,7 +16,8 @@ class MeetingsController < ApplicationController
 
   # GET /meetings/new
   def new
-    @meeting = Meeting.new
+    # @meeting = Meeting.new
+    @meeting = current_staff.meetings.build
   end
 
   # GET /meetings/1/edit
@@ -26,10 +27,11 @@ class MeetingsController < ApplicationController
   # POST /meetings
   # POST /meetings.json
   def create
-    @meeting = Meeting.new(meeting_params)
+    # @meeting = Meeting.new(meeting_params)
+    @meeting = current_staff.meetings.new(meeting_params)
     respond_to do |format|
       if @meeting.save
-        format.html { redirect_to @meeting, notice: 'Meeting was successfully created.' }
+        format.html { redirect_to @meeting }
         format.json { render :show, status: :created, location: @meeting }
       else
         format.html { render :new }

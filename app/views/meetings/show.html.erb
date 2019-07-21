@@ -13,6 +13,10 @@
   <%= @meeting.end_time %>
 </p>
 
+<p>
+  <strong>Educator:</strong>
+  <%= @meeting.staff.email.split('@')[0].capitalize %>
+</p>
 
 
 <%= link_to 'Edit', edit_meeting_path(@meeting) %> |
