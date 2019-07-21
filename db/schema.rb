@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_15_211400) do
+ActiveRecord::Schema.define(version: 2019_07_15_204116) do
 
   create_table "accounts", force: :cascade do |t|
     t.integer "account_number"
@@ -85,18 +85,6 @@ ActiveRecord::Schema.define(version: 2019_07_15_211400) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["account_id"], name: "index_schedules_on_account_id"
     t.index ["trainer_id"], name: "index_schedules_on_trainer_id"
-  end
-
-  create_table "staffs", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_staffs_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_staffs_on_reset_password_token", unique: true
   end
 
   create_table "students", force: :cascade do |t|

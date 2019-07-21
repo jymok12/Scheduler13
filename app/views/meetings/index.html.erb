@@ -47,10 +47,11 @@
           <td><%= meeting.name %></td>
           <td><%= meeting.start_time %></td>
           <td><%= meeting.end_time %></td>
-          <% if current_staff %>
-            <td><%= link_to 'Show', meeting %></td>
-            <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>
-            <td><%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Show', meeting %></td>
+           <% if current_staff %> 
+            <%# <% if current_staff.username ==  %>
+              <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>
+              <td><%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
         </tr>
       <% end %>

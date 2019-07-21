@@ -3,6 +3,8 @@ class MeetingsController < ApplicationController
 
   # GET /meetings
   # GET /meetings.json
+
+
   def index
     @meetings = Meeting.all
   end
@@ -25,7 +27,6 @@ class MeetingsController < ApplicationController
   # POST /meetings.json
   def create
     @meeting = Meeting.new(meeting_params)
-
     respond_to do |format|
       if @meeting.save
         format.html { redirect_to @meeting, notice: 'Meeting was successfully created.' }
