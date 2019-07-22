@@ -18,6 +18,21 @@
   <%= @meeting.staff.username %>
 </p>
 
+<% if current_user %>
+
+<% pre_like = @meeting.likes.find { |like| like.user_id == current_user.id} %>
+
+  <% if pre_like %>
+    <%= button_to 'Unbook', meeting_like_path(@meeting, pre_like), method: :delete %>
+  <% else %>
+    <%= button_to 'Book', meeting_likes_path(@meeting), method: :meeting %>
+  <% end %>
+
+<% end %>
+
+<p><%= @meeting.likes.count %> <%= (@meeting.likes.count) == 1 ? 'Booking' : 'Bookings'%></p>
+
+
 <% if current_staff == @meeting.staff %>
   <%= link_to 'Edit', edit_meeting_path(@meeting) %> |
 <% end %>

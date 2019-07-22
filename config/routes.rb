@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 
   devise_for :staffs, path: 'staffs'
 
+  resources :meetings do
+    resources :likes
+  end
+
   #get "/app/views/home/calendar.html.erb", to: "home#calendar", as: "calendar"
   get "/app/views/home/index.html.erb", to: "home#index", as: "index"
   get "/app/views/home/about.html.erb", to: "home#about", as: "about"

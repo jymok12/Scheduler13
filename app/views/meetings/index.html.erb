@@ -37,6 +37,7 @@
         <th>Name</th>
         <th>Start time</th>
         <th>End time</th>
+        <th>Bookings</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -47,10 +48,14 @@
           <td><%= meeting.name %></td>
           <td><%= meeting.start_time %></td>
           <td><%= meeting.end_time %></td>
-          <td><%= link_to 'Show', meeting %></td>
+          <td><%= meeting.likes.count %> <%= (meeting.likes.count) == 1 ? '' : ''%></td>
             <% if current_staff == meeting.staff %>
+              <td><%= link_to 'Show', meeting %></td>
               <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>
-              <td><%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Delete', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+            <% if current_user %>
+              <td><%= link_to 'Show', meeting %></td>
             <% end %>
         </tr>
       <% end %>
