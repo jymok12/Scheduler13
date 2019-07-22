@@ -18,6 +18,8 @@
   <%= @meeting.staff.username %>
 </p>
 
+<% if current_staff == @meeting.staff %>
+  <%= link_to 'Edit', edit_meeting_path(@meeting) %> |
+<% end %>
 
-<%= link_to 'Edit', edit_meeting_path(@meeting) %> |
 <%= link_to 'Back', meetings_path %>
