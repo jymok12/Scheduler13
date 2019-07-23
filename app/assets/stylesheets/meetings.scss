@@ -5,3 +5,56 @@
   color: white;
   padding-left: 10px;
 }
+
+#apptlist {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#apptlist td, #apptlist th {
+  font-family: Lato;
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#apptlist {
+  background-color: #f2f2f2;
+}
+
+#apptlist tr:hover {
+  background-color: #ddd;
+}
+
+#apptlist th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: rgba(0,0,255,0.7);
+  color: white;
+  font-family: Lato;
+}
+
+#apptcalendar {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#apptcalendar td, #apptcalendar th {
+  font-family: Lato;
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#apptcalendar {
+  background-color: #f2f2f2;
+}
+
+
+#apptcalendar th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgba(0,0,255,0.7);
+  color: white;
+  font-family: Lato;
+}
