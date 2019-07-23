@@ -1,49 +1,93 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container">
-    <%= link_to 'SFU Scheduler', root_path, class: "navbar-brand" %>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<!DOCTYPE html>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="active">
-          <%= link_to 'Home', root_path, class: "nav-link" %> <!--CHANGE ALL LINKS TO 'Sign out' LINK-->
-        </li>
-        <li>
-          <%= link_to 'About', about_path, class: "nav-link" %>
-        </li>
-        <li>
-          <%= link_to 'Staff', staff_list_path, class: "nav-link" %>
-        </li>
-      </ul>
-      <ul class="navbar-nav ml-auto">
-      </ul>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>SFU Scheduler</title>
+      <!-- Lato Font -->
+      <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+
+      <!-- Linking CSS -->
+      <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  </head>
+  <body class="newbackground">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <%= link_to 'SFU Scheduler', root_path, class: "navbar-brand" %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <!-- Removed the HOME page tab from navbar b/c SFU Scheduler takes you to home page already -->
+            <li>
+              <%= link_to 'About', about_path, class: "nav-link" %>
+            </li>
+            <li>
+              <%= link_to 'Staff', staff_list_path, class: "nav-link" %>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <% if current_user || current_staff %>
+              <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "a-primary" %>
+            <% else %>
+            <%#<%= link_to 'Sign up', new_user_registration_path, class: "a-primary"%>
+              <%= link_to 'Sign up', signup_path, class: "a-primary"%>
+            <%#<%= link_to 'Sign in', new_user_session_path, class: "a-primary"%>
+              <%= link_to 'Sign in', signin_path, class: "a-primary"%>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+<div>
+  <section class="heading">
+    <div class="container">
+      <div>
+        <div>
+          <h1>About</h1>
+        </div>
+      </div>
     </div>
-  </div>
-</nav>
+  </section>
 
-<h1 class = "title"><b> About </b></h1>
-<body class = "body">
-<form class = "form">
-<h2 class = "para"><u> Why this website was created? </u></h2>
-<p class = "script">This website was created to make booking appointments for SFU students simpler.
-<br> Also, this website allows educators to have an easy method of posting their availability.</br></p>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div>
+          <h1>SCHEDULING</h1>
+          <h2>Trusted by Simon Fraser University</h2>
+          <hr class="aboutHR">
+          <p class="ct-u-size22 ct-u-fontWeight300 ct-u-marginBottom60 marginTop40">
+          <h4> Why we chose this for our project</h4>
+          <p class = "script">This website was created to make booking appointments for SFU students simpler. Also, this website allows educators to have an easy method of posting their availability.</p>
 
-<h2 class = "para"><u> Who can use this webiste? </u> </h2>
-<p class = "script">Students can use the website to book appointments for TAs, professors, advisors etc.
-<br> As a SFU student, they would have access to a calendar and book whatever appointment they need.
-<br> As an SFU educator, they can use the website to post whatever time they would be available and cancel appointments whenever necessary.</br></p>
+          <h4> Who can use this webiste?</h4>
+          <p>Students can use the website to book appointments for TAs, professors, advisors etc. As a SFU student, they would have access to a calendar and book whatever appointment they need. As an SFU educator, they can use the website to post whatever time they would be available and cancel appointments whenever necessary.</p>
 
-<h2 class = "para"><u> How is this website used? </u></h2>
-<h3 class = "para1"><u> <i> Students </i></u></h3>
-<p class = "script"> Students will need to sign up or sign in to an acccount.
-<br>After they sign in, they would have access to a calendar, and by clicking on the selected date,
-they would have to fill out an online form to select which staff member and what time they want. </br></p>
-<h3 class = "para1"><u><i> Educators </i></u></h3>
-<p class = "script"> Educators will need to sign up or sign in to an account.
-<br>After the sign in, they would have access to a calendar, and by clicking the "New Meeting" link, they would need to give what dates and times they would be available to meet with students.</br></p>
+          <h4>How is this website used?</h4>
+          <p><i>Students</i> - will need to sign up or sign in to an acccount. After they sign in, they would have access to a calendar, and by clicking on the selected date, they would have to fill out an online form to select which staff member and what time they want.</p>
+          <p><i> Educators </i> - will need to sign up or sign in to an account. After the sign in, they would have access to a calendar, and by clicking the "New Meeting" link, they would need to give what dates and times they would be available to meet with students.</p>
+        </div>
+        <div>
+      </div>
+    </div>
+  </section>
+</div>
 
-<p = "script"><i> Created by: Christien John, Jasmine Lin, Justin Mok, Avneet Sekhon, Patrick Yang</i></p>
-</form>
-</body>
+
+
+
+    <!-- Installing Jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <!-- Installing JavaScript -->
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  </body>
+  </html>

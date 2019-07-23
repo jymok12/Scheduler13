@@ -1,66 +1,100 @@
-  #content {
-    color: white;
-  	text-align: center;
-  	padding-top: 25%;
-  	text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-  				 0px 8px 13px rgba(0,0,0,0.1),
-  				 0px 18px 23px rgba(0,0,0,0.1);
-  }
+body, html {
+  height: 100%;
+  width: 100%;
+  font-family: Lato;
+  color: white;
+}
 
-  body{
-    background: url(https://images.unsplash.com/photo-1468348754239-3f973c649f90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjU1MzA3fQ&auto=format&fit=crop&w=1350&q=80);
-    background-size: cover;
-  	font-family: Lato;
-  	color: white;
-  }
+.content {
+  color: white;
+  text-align: center;
+  padding-top: 20%;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+              0px 8px 13px rgba(0,0,0,0.1),
+              0px 18px 23px rgba(0,0,0,0.1);
+}
 
-  html {
-  	height: 100%
-  }
+.homebody {
+  background: url(https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3066&q=80);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-  h1 {
-  	font-weight: 700;
-  	font-size: 5em;
-  }
+.homeHR {
+  width: 400px;
+}
 
-  hr {
-  	width: 400px;
-  	border-top: 1px solid #f8f8f8;
-  	border-bottom: 1px solid rgba(0,0,0,0.2 );
-  }
 
-  .index-home
-  {
 
-  .a-primary{
-    color: black;
-    padding-left: 10px;
-  }
 
-  .header-1{
-    font-size: 20px;
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.index-home
+{
+
+.a-primary{
+color: black;
+padding-left: 10px;
+}
+
+.header-1{
+font-size: 20px;
+}
 
 table, th, td {
-  border: 1px solid black;
-  font-family: Arial, sans-serif;
-  text-align: center;
+border: 1px solid black;
+font-family: Arial, sans-serif;
+text-align: center;
 }
 th{
-	font-weight: bold;
+font-weight: bold;
 }
 
 .search{
-  background-color: #e6e6e6;
-  	color: #AAA;
-  	padding: 20px;
-  	margin: 50px auto 0px auto;
-  	width: 90%;
-  	float: left;
+background-color: #FFF;
+color: #AAA;
+padding: 20px;
+margin: 50px auto 0px auto;
+width: 90%;
+float: left;
 }
 
-.names{
-  background-color: #e6e6e6;
-}
 
 }
