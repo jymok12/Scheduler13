@@ -5,179 +5,161 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
       <title>SFU Scheduler</title>
-
       <!-- Lato Font -->
       <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
 
-      <!-- Installing CSS -->
+      <!-- Linking CSS -->
       <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-      <link rel="stylesheet" type="text/css" href="landingPage.css">
-
-      <link rel="stylesheet" type="text/css" href="schd_style.css" >
-
-
   </head>
-  <body>
-    <div class="background">
-      <!-- Navbar -->
-    	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    		<div class="container">
-    			<%= link_to 'SFU Scheduler', root_path, class: "navbar-brand" %>
-    			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    				<span class="navbar-toggler-icon"></span>
-    			</button>
+  <body class="staffbackground">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <%= link_to 'SFU Scheduler', root_path, class: "navbar-brand" %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-    			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-    				<ul class="navbar-nav mr-auto">
-    					<li class="active">
-    						<%= link_to 'Home', root_path, class: "nav-link" %> <!--CHANGE ALL LINKS TO 'Sign out' LINK-->
-    					</li>
-
-    					<li>
-    					  <%= link_to 'About', about_path, class: "nav-link" %> 
-    					</li>
-    					<li>
-    					  <%= link_to 'Staff', staff_list_path, class: "nav-link" %>
-    					</li>
-    				</ul>
-    				<ul class="navbar-nav ml-auto">
-              <% if current_user || current_staff %>
-                <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "a-primary" %>
-              <% else %>
-              <%#<%= link_to 'Sign up', new_user_registration_path, class: "a-primary"%>
-                <%= link_to 'Sign up', signup_path, class: "a-primary"%>
-              <%#<%= link_to 'Sign in', new_user_session_path, class: "a-primary"%>
-                <%= link_to 'Sign in', signin_path, class: "a-primary"%>
-              <% end %>
-    				</ul>
-    			</div>
-    		</div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <!-- Removed the HOME page tab from navbar b/c SFU Scheduler takes you to home page already -->
+            <li>
+              <%= link_to 'About', about_path, class: "nav-link" %>
+            </li>
+            <li>
+              <%= link_to 'Staff', staff_list_path, class: "nav-link" %>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <% if current_user || current_staff %>
+              <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "a-primary" %>
+            <% else %>
+            <%#<%= link_to 'Sign up', new_user_registration_path, class: "a-primary"%>
+              <%= link_to 'Sign up', signup_path, class: "a-primary"%>
+            <%#<%= link_to 'Sign in', new_user_session_path, class: "a-primary"%>
+              <%= link_to 'Sign in', signin_path, class: "a-primary"%>
+            <% end %>
+          </ul>
+        </div>
+      </div>
     </nav>
 
-  	<!-- Title Container -->
-  	<div class="container">
-  		<div class="row">
-  			<div class="col-lg-12">
-  				<div id="content">
-  					 <img src="http://www.cecm.sfu.ca/~jbauch/files/SFU.png" style="float: right; width:218px; height:104px;"/>
-                    <h1>Faculty Contact</h1>
-          </div>
-        </div>
-      </div>
+    <!-- Title Container -->
+    <div id="content">
+      <h1>Faculty Contact</h1>
     </div>
-	<!--CONTACT LIST CONTAINER-->
-      <div class="container">
-  		<div class="row">
-  			<div class="col-lg-12">
-  				<div id="content">
-  					<div class="search">
-  						<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Staff Name..." title="Type in a name">
-  					</div>
-          </div>
-        </div>
-      </div>
-    </div>
+  
+
+
+<!--CONTACT LIST CONTAINER-->
+    <div id="content">
+     <div class="search">
+      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Staff Name">
+   </div>
   </div>
 
-						<table id="fac_con">
-    					<thead>
-     					<tr>
-        					<th style="width:35%;">Name</th>
-        					<th style="width:20%;">Faculty</th>
-        					<th style="width:30%;">Contact Info</th>
-                     <th style="width:10%;">office</th>
-                     <th style="width:10%;">more info</th>
-     					 </tr>
-   					 	</thead>
-    					<tbody>
-      					<tr>
-       	 					<td>YAGIZ AKSOY</td>
-        					<td>Computer Science</td>
-        					<td>yagiz@sfu.ca</td>
-                            <td>TASC1 9215</td>
-                            <td><a href="https://www.sfu.ca/computing/people/faculty/yagizaksoy.html" target="_blank">more info</a></td>
-      					</tr>
-      					<tr>
-        					<td>ANDREI BULATOV</td>
-        					<td>Computer Science</td>
-        					<td>abulatov@cs.sfu.ca</td>
-                            <td>TASC 8013</td>
-                            <td><a href="https://www.sfu.ca/computing/people/faculty/andreibulatov.html" target="_blank">more info</a></td>
-     	 				</tr>
-      					<tr>
-        					<td>BRADLEY BART</td>
-        					<td>Computer Science</td>
-        					<td>bbart@cs.sfu.ca</td>
-                            <td>TASC 9023</td>
-                            <td><a href="https://www.sfu.ca/computing/people/faculty/bradleybart.html" target="_blank">more info</a></td>
-      					</tr>
-      					<tr>
-        					<td>BAGHBAN KARIMI, OULDOOZ</td>
-        					<td>Computer Science</td>
-        					<td>ouldooz@sfu.ca</td>
-                            <td>SUR 4142</td>
-                            <td><a href="https://www.sfu.ca/computing/people/faculty/ouldoozbaghbankarimi.html" target="_blank">more info</a></td>
-      					<tr>
-        					<td>MO CHEN</td>
-        					<td>Computer Science</td>
-        					<td>mochen@sfu.ca</td>
-                            <td>TASC1 8225</td>
-                            <td><a href="https://www.sfu.ca/computing/people/faculty/mochen.html" target="_blank">more info</a></td>
-      					</tr>
-      					<tr>
-        					<td>ROBERT D. CAMERON</td>
-        					<td>Computer Science</td>
-        					<td>cameron@cs.sfu.ca</td>
-                            <td>SUR 4178</td>
-                            <td><a href="https://www.sfu.ca/computing/people/faculty/robertdcameron.html" target="_blank">more info</a></td>
-      					</tr>
-    					</tbody>
-    					<tfoot>
-     						<td>JAMES DELGRANDE</td>
-        					<td>Computer Science</td>
-        					<td>jim@cs.sfu.ca</td>
-                            <td>TASC 9015</td>
-                            <td><a href="https://www.sfu.ca/computing/people/faculty/jamesdelgrande.html" target="_blank">more info</a></td>
-    					</tfoot>
- 			 		</table>
 
-                </div>
-            </div>
-        </div>
-      </div>
+<table id="customers">
+  <tr>
+    <th>Professor</th>
+    <th>Department</th>
+    <th>Contact</th>
+    <th>Room</th>
+    <th>Website</th>
+  </tr>
+  <tr>
+    <td>YAGIZ AKSOY</td>
+    <td>Computer Science</td>
+    <td>yagiz@sfu.ca</td>
+    <td>TASC1 9215</td>
+    <td><a href="https://www.sfu.ca/computing/people/faculty/yagizaksoy.html" target="_blank">more info</a></td>
+  </tr>
 
+  <tr>
+   <td>ANDREI BULATOV</td>
+   <td>Computer Science</td>
+   <td>abulatov@cs.sfu.ca</td>
+   <td>TASC 8013</td>
+   <td><a href="https://www.sfu.ca/computing/people/faculty/andreibulatov.html" target="_blank">more info</a></td>
+ </tr>
+
+ <tr>
+   <td>BRADLEY BART</td>
+   <td>Computer Science</td>
+   <td>bbart@cs.sfu.ca</td>
+   <td>TASC 9023</td>
+   <td><a href="https://www.sfu.ca/computing/people/faculty/bradleybart.html" target="_blank">more info</a></td>
+ </tr>
+
+<tr>
+   <td>BAGHBAN KARIMI, OULDOOZ</td>
+   <td>Computer Science</td>
+   <td>ouldooz@sfu.ca</td>
+   <td>SUR 4142</td>
+   <td><a href="https://www.sfu.ca/computing/people/faculty/ouldoozbaghbankarimi.html" target="_blank">more info</a></td>
+   <tr>
+
+    <tr>
+      <td>MO CHEN</td>
+      <td>Computer Science</td>
+      <td>mochen@sfu.ca</td>
+      <td>TASC1 8225</td>
+      <td><a href="https://www.sfu.ca/computing/people/faculty/mochen.html" target="_blank">more info</a></td>
+    </tr>
+
+    <tr>
+     <td>ROBERT D. CAMERON</td>
+     <td>Computer Science</td>
+     <td>cameron@cs.sfu.ca</td>
+     <td>SUR 4178</td>
+     <td><a href="https://www.sfu.ca/computing/people/faculty/robertdcameron.html" target="_blank">more info</a></td>
+   </tr>
+
+   <tr>
+    <td>JAMES DELGRANDE</td>
+    <td>Computer Science</td>
+    <td>jim@cs.sfu.ca</td>
+    <td>TASC 9015</td>
+    <td><a href="https://www.sfu.ca/computing/people/faculty/jamesdelgrande.html" target="_blank">more info</a></td>
+  </tr>
+</table>
 
 
+<script>
+  function myFunction() {
+   var input, filter, table, tr, td, i, txtValue;
+   input = document.getElementById("myInput");
+   filter = input.value.toUpperCase();
+   table = document.getElementById("fac_con");
+   tr = table.getElementsByTagName("tr");
+   for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+</div>
 
-  	<!-- Installing Jquery -->
-  	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  
+  
+
+    
+
+
+    <!-- Installing Jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
       <!-- Installing JavaScript -->
-   	<script type="text/javascript" 			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script>
-	function myFunction() {
-    	var input, filter, table, tr, td, i, txtValue;
-  		input = document.getElementById("myInput");
-  		filter = input.value.toUpperCase();
-  		table = document.getElementById("fac_con");
-  		tr = table.getElementsByTagName("tr");
-  		for (i = 0; i < tr.length; i++) {
-    		td = tr[i].getElementsByTagName("td")[0];
-    		if (td) {
-      		txtValue = td.textContent || td.innerText;
-      		if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        		tr[i].style.display = "";
-      		} else {
-        		tr[i].style.display = "none";
-      		}
-    		}
-  		}
-	}
-	</script>
-    </div>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
   </body>
   </html>
 
-</div>

@@ -1,33 +1,40 @@
-.form {
-    width: 100%;
-    padding: 12px, 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border-color: black;
-    background-color:white;
-    color: black;
+.content-type {
+    position: relative;
 }
-.title {
-    background-color: black;
-    font-size: 40px;
-    color: red;
+
+.newbackground {
+    background-image: url(https://images.unsplash.com/photo-1483354483454-4cd359948304?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80); 
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+    
+}
+
+
+.heading {
+    margin-bottom: 60px;
+    line-height: 80px;
+    color: #fff;
+    font-weight: 700 !important;
     text-align: center;
+    margin-top: 60px;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+            0px 8px 13px rgba(0,0,0,0.1),
+            0px 18px 23px rgba(0,0,0,0.1);
 }
 
-.para{
-    background-color: white;
-    font-size: 25px;
-    color: black;
-    text-align:justify;
+.container h1.white, .heading h1 {
+    font-family: Lato;
+    font-weight: 400 !important;
+    font-size: 65px;
+    margin-bottom: 0px;
 }
 
-.para1{
-    font-size: 20px;
-    color: black;
+.aboutHR {
+    width: 100% !important;
 }
-.script{
-    background-color: white;
-    font-size: 20px;
-    color: black;
-    text-align:justify;
-}
+
+
+
+
+
